@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Selection and Append</title>
+	<script type="text/javascript" src="d3.js"></script>
+</head>
+<body>
+	<p>Selection and Append Tutorial for D3.js</p>
+	<script type="text/javascript">
+		d3.select("p").text("Modified Text using D3.js");
+		// Append
+		d3.select("body").append("p").text("This is appended para using D3.js");
+		// Adding CSS
+		d3.select("body")
+			.append("p")
+			.style("color","red")
+			.text("This is CSS styled text using D3.js");
+	</script>
+</body>
+</html>
