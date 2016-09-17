@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Basic SVG shapes</title>
+	<script type="text/javascript" src="d3.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// create a canvas
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("width", 500)
+						.attr("height", 500);
+
+		// create a circle
+		var circle = canvas.append("circle")
+							.attr("cx", 200)		// center, x-coordinate
+							.attr("cy", 200)		// center, y-coordinate
+							.attr("r", 50)			// radius
+							.attr("fill", "blue");	// fill circle
+
+		// create a rectangle
+		var rect = canvas.append("rect")
+							.attr("width", 100)
+							.attr("height", 50);
+
+		// create a line
+		var line = canvas.append("line")
+							.attr("x1", 10)				// x1 coordinate
+							.attr("y1", 20)				// y1 coordinate
+							.attr("x2", 100)			// x2 coordinate
+							.attr("y2", 470)			// y2 coordinate
+							.attr("stroke", "red")		// color of line
+							.attr("stroke-width", 4);	// width of line
+	</script>
+</body>
+</html>
