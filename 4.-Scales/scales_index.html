@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Visualizing Data</title>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	var dataArray = [120, 500, 300, 900, 230];
+	var width = 500;
+	var height = 500;
+
+	// create a scale to fit the dataArray into the frame of svg
+	var scale = d3.scale.linear()
+				.domain([0,900])				// defines domain: min and max from the dataArray
+				.range([0,500]);				// defines range: min and max 
+
+	// create a canvas
+	var canvas = d3.select("body")
+					.append("svg")
+					.attr("width", width)
+					.attr("height", height);
+
+	// change color of bars based on width value
+	var color = d3.scale.linear()
+				.domain([0,900])
+				.range(["green","blue"]);		// min value corresponds to green. max -> blue
+
+	// create bars 
+	var bars = canvas.selectAll("rect")			// select All rect elements, but since no rect elements yet, hence returns empty
+						.data(dataArray)		// takes dataArray as input
+						.enter()				// create a placeholder for each rect element coresponding to the bars
+							.append("rect")		// append rect element into DOM for each bar
+							.attr("width", function(d){		// @param d = data
+								return scale(d);					// magnifying the bars width
+							})
+							.attr("height", 50)
+							.attr("y", function(d, i){		// @param d = data, i = index
+								return (i*70);				// to prevent overlap of bars(rect elements in the DOM)
+							})
+							.attr("fill", function(d){ return color(d); });	
+
+	</script>
+</body>
+</html>
