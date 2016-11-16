@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Working With Arrays</title>
+	<script type="text/javascript" src="../d3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var data = [1,32,12,43,12,344];
+		console.log("data: "+data);
+		console.log("shift: "+data.shift());				// pops out the first element from array
+		console.log("sort: "+data.sort(d3.descending));		// sort in descending order
+		console.log("min: "+d3.min(data));					// min value in array
+		console.log("max: "+d3.max(data));					// max value in array
+		console.log("extent: "+d3.extent(data));			// returns [min, max]
+		console.log("sum: "+d3.sum(data));					// sum of elements in array
+		console.log("median: "+d3.median(data));			// median of array
+		console.log("mean: "+d3.mean(data));				// mean of array
+		console.log("shuffle: "+d3.shuffle(data));			// shuffle positions of array elements
+	</script>
+</body>
+</html>

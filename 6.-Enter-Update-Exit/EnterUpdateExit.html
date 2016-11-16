@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enter Update Exit</title>
+	<!-- <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script> -->
+	<script type="text/javascript" src="../d3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// DOM elements < data elements (ENTER)
+		// DOM elements > data elements (EXIT)
+		// DOM elements = data elements (UPDATE)
+
+		var data1 = [10,20];
+		var data2 = [30];
+
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("width",500)
+						.attr("height", 500);
+
+		var circle1 = canvas.append("circle")
+							.attr("cx", 50)
+							.attr("cy", 100)
+							.attr("r", 25);
+
+
+		var circles = canvas.selectAll("circle")
+						.data(data1)
+						.attr("fill","blue")
+						.enter()
+							.append("circle")
+							.attr("cx", 50)
+							.attr("cy", 50)
+							.attr("r", 25)
+							.attr("fill","green");
+
+		// Uncomment to run the exit() and comment line 28 to 36
+		// var circle2 = canvas.append("circle")
+		// 					.attr("cx", 50)
+		// 					.attr("cy", 200)
+		// 					.attr("r", 25);
+
+		// var exit_circles = canvas.selectAll("circle")
+		// 						.data(data2)
+		// 						.attr("fill","red")
+		// 						.exit()
+		// 							.attr("fill","yellow")
+	</script>
+</body>
+</html>

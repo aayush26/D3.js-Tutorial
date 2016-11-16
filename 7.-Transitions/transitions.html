@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transitions</title>
+	<script type="text/javascript" src="../d3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("width", 500)
+						.attr("height", 500);
+
+		var circle = canvas.append("circle")
+							.attr("cx", 50)
+							.attr("cy", 50)
+							.attr("r", 25);
+
+		circle.transition()
+			.duration(1500)			//default duration is 500ms
+			.delay(1000)
+			.attr("cx", 150)
+			.attr("cy", 150)
+			.attr("r", 40)
+			.transition()			// transition followed after first transition
+				.duration(1500)
+				.attr("cx", 50)
+				.attr("cy", 50)
+				.attr("r", 25);
+			// .each("end", function(){ d3.select(this).attr("fill","red"); });		// not working now. 
+
+	</script>
+</body>
+</html>
