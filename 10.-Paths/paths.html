@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paths</title>
+	<script type="text/javascript" src="../d3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("height", 500)
+						.attr("width", 500);
+
+		var data = [
+						{x: 3, y: 254},
+						{x: 59, y: 23},
+						{x: 132, y: 9},
+						{x: 221, y: 3},
+						{x: 365, y: 198}
+					];
+
+		var group = canvas.append("g")
+							.attr("transform","translation(100,100)");
+
+		var line = d3.line()								// d3.svg.line()   d3 version3
+					.x(function(d){ return d.x; })
+					.y(function(d){ return d.y; });
+
+		group.selectAll("path")
+			.data([data])
+			.enter()
+				.append("path")
+				.attr("d",line)
+				.attr("fill", "none")
+				.attr("stroke-width", 5)
+				.attr("stroke", "#000");
+
+	</script>
+</body>
+</html>
